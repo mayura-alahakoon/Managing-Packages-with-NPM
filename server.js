@@ -21,12 +21,7 @@ if (!process.env.DISABLE_XORIGIN) {
   });
 }
 
-app.use(express.static(__dirname + "/public/"));
-app.use("/public", express.static(__dirname + "/public"));
 
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/views/index.html")
-});
 
 //Listen on port set in environment variable or default to 3000
 var port = process.env.PORT || 5000;
