@@ -7,7 +7,13 @@ body {
 	background-color: #ECF0F1;
 	text-align: center;
 }
-
+h1 {
+	font-size: 4em;
+  }
+  input[type=text], label {
+	margin-bottom: 8px;
+  }
+  
 .container {
 	padding: 0;
 	margin-top: 40px;
