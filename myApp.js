@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 let express = require('express');
 let app = express();
 require('dotenv').config();
@@ -21,15 +22,13 @@ res.sendFile(__dirname + "/views/index.html")
 
 
 app.get("/json", function(req, res) {
+    var jsonResponse = {"message": "Hello json"};
+
     if (process.env.MESSAGE_STYLE === "uppercase") {
-        res.json(
-            {"message": "HELLO JSON"}
-        )
-    } else {
-        res.json(
-            {"message" : "Hello json"}
-        )
+        jsonResponse.message = jsonResponse.message.toUpperCase()
     }
+        res.json(jsonResponse);
+            
 
 });
 
