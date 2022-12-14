@@ -1,4 +1,5 @@
 let express = require("express");
+var bGround = require('fcc-express-bground');
 let app = express();
 const path = require("path");
 const indexPath = path.resolve("./views/index.html");
@@ -17,4 +18,18 @@ app.get("/json", (req, res) => {
 	res.json({message: "hello json"});
 });
 
+function getTheCurrentTimeString() {
+    return new Date().toString();
+}
+
+app.get("/now", (req, res, next) =>{
+    req.time = getTheCurrentTimeString();
+    next();
+}, function(req, res) {
+    res.json({ time: req.time});
+})
+
+app.get("/:word/echo", function(req, res) {
+    res.json({ echo: req.params.word});
+});
 module.exports = app;
